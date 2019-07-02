@@ -39,6 +39,9 @@ class App extends React.Component {
       .catch(err => console.error(err));
     // axios.put(`http://localhost:5000/friends/${friend.id}`);
   };
+  deleteFriend = id => {
+    axios.delete(`http://localhost:5000/friends/${id}`);
+  };
   render() {
     return (
       <div>
@@ -66,7 +69,11 @@ class App extends React.Component {
         <Route
           path="/update-friend/:id"
           render={props => (
-            <UpdateFriend {...props} updateFriend={this.updateFriend} />
+            <UpdateFriend
+              {...props}
+              updateFriend={this.updateFriend}
+              deleteFriend={this.deleteFriend}
+            />
           )}
         />
         <Route path="/friend/:id" />

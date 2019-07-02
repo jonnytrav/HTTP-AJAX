@@ -52,6 +52,14 @@ class UpdateFriend extends React.Component {
         >
           Update Friend!
         </button>
+        <button
+          onClick={() => {
+            this.props.deleteFriend(this.props.match.params.id);
+            // console.log(this.props.match.params.id);
+          }}
+        >
+          Delete this friend..
+        </button>
       </div>
     );
   }
