@@ -47,7 +47,7 @@ class UpdateFriend extends React.Component {
         </form>
         <button
           onClick={() => {
-            this.props.updateFriend(this.state);
+            this.props.updateFriend(this.state, this.props.match.params.id);
           }}
         >
           Update Friend!

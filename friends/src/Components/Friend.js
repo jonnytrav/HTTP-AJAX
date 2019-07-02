@@ -14,9 +14,7 @@ const Friend = props => {
               <UpdateFriend {...props} updateFriend={props.updateFriend} />
             )}
           /> */}
-          <Link to="/update-friend" id={props.friend.id}>
-            edit
-          </Link>
+          <Link to={`/update-friend/${props.friend.id}`}>edit</Link>
         </span>
       </h3>
       <p>{props.friend.email}</p>

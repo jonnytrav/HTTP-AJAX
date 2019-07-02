@@ -30,9 +30,9 @@ class App extends React.Component {
     });
     // this.props.history.push("/");
   };
-  updateFriend = friend => {
+  updateFriend = (friend, id) => {
     axios
-      .put(`http://localhost:5000/friends/${friend.id}`, friend)
+      .put(`http://localhost:5000/friends/${id}`, friend)
       .then(res => {
         this.setState({ friends: res.data });
       })
@@ -64,7 +64,7 @@ class App extends React.Component {
           )}
         />
         <Route
-          path="/update-friend"
+          path="/update-friend/:id"
           render={props => (
             <UpdateFriend {...props} updateFriend={this.updateFriend} />
           )}
