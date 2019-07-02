@@ -5,6 +5,7 @@ import "./App.css";
 
 import FriendForm from "./Components/FriendForm";
 import Friends from "./Components/Friends";
+import UpdateFriend from "./Components/UpdateFriend";
 
 class App extends React.Component {
   constructor() {
@@ -23,13 +24,34 @@ class App extends React.Component {
       .catch(err => console.error(err));
     // console.log(this.state);
   }
+  addFriend = friend => {
+    axios.post("http://localhost:5000/friends", friend).then(res => {
+      this.setState({ friends: res.data });
+    });
+    // this.props.history.push("/");
+  };
+  updateFriend = friend => {
+    axios
+      .put(`http://localhost:5000/friends/${friend.id}`, friend)
+      .then(res => {
+        this.setState({ friends: res.data });
+      })
+      .catch(err => console.error(err));
+    // axios.put(`http://localhost:5000/friends/${friend.id}`);
+  };
   render() {
     return (
       <div>
         <Route
           exact
           path="/"
-          render={props => <Friends {...props} friends={this.state.friends} />}
+          render={props => (
+            <Friends
+              {...props}
+              friends={this.state.friends}
+              updateFriend={this.updateFriend}
+            />
+          )}
         />
         <Route
           path="/friend-form"
@@ -41,6 +63,13 @@ class App extends React.Component {
             />
           )}
         />
+        <Route
+          path="/update-friend"
+          render={props => (
+            <UpdateFriend {...props} updateFriend={this.updateFriend} />
+          )}
+        />
+        <Route path="/friend/:id" />
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import { Link } from "react-router-dom";
 
 class FriendForm extends React.Component {
   constructor(props) {
@@ -15,16 +15,11 @@ class FriendForm extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
     // console.log(this.state.friend);
   };
-  addFriend = friend => {
-    axios.post("http://localhost:5000/friends", friend).then(res => {
-      this.setState({ friends: res.data });
-    });
-    this.setState({ name: "", age: "", email: "" });
-  };
 
   render() {
     return (
       <div className="friend-form">
+        <Link to="/">Back to Friends</Link>
         <form>
           <input
             type="text"
@@ -48,7 +43,7 @@ class FriendForm extends React.Component {
             value={this.state.email}
           />
         </form>
-        <button onClick={() => this.addFriend(this.state)}>Add!</button>
+        <button onClick={() => this.props.addFriend(this.state)}>Add!</button>
       </div>
     );
   }
