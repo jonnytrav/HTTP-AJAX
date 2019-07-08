@@ -20,7 +20,7 @@ class FriendForm extends React.Component {
     return (
       <div className="friend-form">
         <Link to="/">Back to Friends</Link>
-        <form>
+        <form className="form">
           <input
             type="text"
             name="name"
@@ -42,8 +42,8 @@ class FriendForm extends React.Component {
             placeholder="Email"
             value={this.state.email}
           />
+          <button onClick={() => this.props.addFriend(this.state)}>Add!</button>
         </form>
-        <button onClick={() => this.props.addFriend(this.state)}>Add!</button>
       </div>
     );
   }

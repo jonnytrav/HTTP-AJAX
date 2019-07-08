@@ -1,8 +1,8 @@
 import React from "react";
 import axios from "axios";
 import { Route } from "react-router-dom";
-import "./App.css";
 
+import "./App.css";
 import FriendForm from "./Components/FriendForm";
 import Friends from "./Components/Friends";
 import UpdateFriend from "./Components/UpdateFriend";
@@ -44,7 +44,7 @@ class App extends React.Component {
   };
   render() {
     return (
-      <div>
+      <div className="app">
         <Route
           exact
           path="/"

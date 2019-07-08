@@ -22,7 +22,7 @@ class UpdateFriend extends React.Component {
     return (
       <div>
         <Link to="/">Back to Friends</Link>
-        <form>
+        <form className="form">
           <input
             placeholder="Update Name..."
             name="name"
@@ -44,22 +44,23 @@ class UpdateFriend extends React.Component {
             value={this.state.email}
             onChange={this.handleChange}
           />
+          <button
+            onClick={() => {
+              this.props.updateFriend(this.state, this.props.match.params.id);
+            }}
+          >
+            Update Friend!
+          </button>
+          <button
+            className="delete-btn"
+            onClick={() => {
+              this.props.deleteFriend(this.props.match.params.id);
+              // console.log(this.props.match.params.id);
+            }}
+          >
+            Delete this friend..
+          </button>
         </form>
-        <button
-          onClick={() => {
-            this.props.updateFriend(this.state, this.props.match.params.id);
-          }}
-        >
-          Update Friend!
-        </button>
-        <button
-          onClick={() => {
-            this.props.deleteFriend(this.props.match.params.id);
-            // console.log(this.props.match.params.id);
-          }}
-        >
-          Delete this friend..
-        </button>
       </div>
     );
   }
