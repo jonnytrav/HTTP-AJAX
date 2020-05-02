@@ -1,0 +1,45 @@
+/* .home-page {
+  background-color: #add0f9;
+} */
+.form {
+  display: flex;
+  flex-flow: column wrap;
+  width: 30%;
+  margin: auto;
+}
+.friend {
+  display: flex;
+  flex-flow: row wrap;
+  border: 1px solid black;
+  width: 35%;
+  margin: auto;
+  margin-bottom: 1%;
+  box-sizing: border-box;
+  padding: 0.75%;
+  background-color: #74b0f5;
+}
+.friend-info {
+  display: flex;
+  flex-flow: column wrap;
+  width: 80%;
+}
+.delete-btn:hover {
+  background-color: red;
+}
+.new-friend-btn {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 20%;
+  margin: auto;
+  margin-top: 1%;
+  margin-bottom: 2%;
+  border: 1px solid blue;
+  border-radius: 25px;
+  box-sizing: border-box;
+  padding: 2%;
+  text-decoration: none;
+}
+.new-friend-btn:hover {
+  background-color: #74b0f5;
+}
